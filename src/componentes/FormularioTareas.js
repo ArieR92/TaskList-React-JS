@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { FaPlusCircle,} from "react-icons/fa";
+import { v4 as uuidv4 } from 'uuid';
 
 const FormularioTareas =  ({tareas, cambiarTareas}) => {
 
@@ -19,8 +20,8 @@ const FormularioTareas =  ({tareas, cambiarTareas}) => {
             [
                 ...tareas,
                 {
-                    id: 3,
-                    Text: inputTarea,
+                    id: uuidv4(),
+                    texto: inputTarea,
                     completada:false
                 }
             ]
