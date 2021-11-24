@@ -1,13 +1,26 @@
 import React from 'react';
-import { FaEyeSlash,} from "react-icons/fa";
+import { FaEyeSlash, FaEye} from "react-icons/fa";
 
-const Header  = () => {
+const Header  = ({mostrarCompletadas, cambiarMostrarCompletadas}) => {
+const toggleCompletadas =() => {
+    cambiarMostrarCompletadas(!mostrarCompletadas);
+
+    
+}
+
     return (
         <header className="header">
             <h1 className="header__titulo">Tasks List</h1>
-            <button className="header__boton">
-               Hide not completed <FaEyeSlash className="header__icono-boton"/>
-            </button>
+            { mostrarCompletadas ?
+                  <button onClick = {() => toggleCompletadas()} className="header__boton">
+                   Hide not completed <FaEyeSlash className="header__icono-boton"/>
+                  </button> 
+                  :
+                  <button onClick = {() => toggleCompletadas()} className="header__boton">
+                   Show completed <FaEye className="header__icono-boton"/>
+                  </button>
+            }
+            
         </header>
     );
 }
